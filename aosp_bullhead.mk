@@ -34,6 +34,8 @@ PRODUCT_COPY_FILES += device/lge/bullhead/fstab.aosp_bullhead:root/fstab.bullhea
 
 $(call inherit-product, device/lge/bullhead/device.mk)
 $(call inherit-product-if-exists, vendor/lge/bullhead/device-vendor.mk)
+$(call inherit-product, device/lge/bullhead-vendorimage/bullhead-vendorimage.mk)
+$(call inherit-product, vendor/lge/bullhead/bullhead-vendor.mk)
 
 PRODUCT_PACKAGES += \
     Launcher3 \

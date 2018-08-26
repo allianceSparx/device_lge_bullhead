@@ -51,15 +51,15 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/lge/bullhead/audio_effects.conf:system/etc/audio_effects.conf \
-    device/lge/bullhead/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/lge/bullhead/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    device/lge/bullhead/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
-    device/lge/bullhead/audio_policy_volumes_drc.xml:system/etc/audio_policy_volumes_drc.xml \
-    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/r_submix_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/default_volume_tables.xml \
+    device/lge/bullhead/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
+    device/lge/bullhead/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    device/lge/bullhead/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    device/lge/bullhead/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    device/lge/bullhead/audio_policy_volumes_drc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes_drc.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
 
 #Sound Trigger
 PRODUCT_COPY_FILES += \
@@ -68,10 +68,10 @@ PRODUCT_COPY_FILES += \
 
 # Input device files
 PRODUCT_COPY_FILES += \
-    device/lge/bullhead/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/lge/bullhead/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
-    device/lge/bullhead/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc \
-    device/lge/bullhead/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
+    device/lge/bullhead/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+    device/lge/bullhead/qpnp_pon.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/qpnp_pon.kl \
+    device/lge/bullhead/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
+    device/lge/bullhead/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
 
 # for launcher layout
 #PRODUCT_PACKAGES += \
@@ -79,7 +79,7 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
-    device/lge/bullhead/synaptics_rmi4_i2c.idc:system/usr/idc/synaptics_rmi4_i2c.idc
+    device/lge/bullhead/synaptics_rmi4_i2c.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/synaptics_rmi4_i2c.idc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -126,7 +126,7 @@ PRODUCT_COPY_FILES += \
 
 # For GPS
 PRODUCT_COPY_FILES += \
-    device/lge/bullhead/sec_config:system/etc/sec_config
+    device/lge/bullhead/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # NFC config files
 PRODUCT_COPY_FILES += \
@@ -135,14 +135,14 @@ PRODUCT_COPY_FILES += \
 
 # For WiFi
 PRODUCT_COPY_FILES += \
-    device/lge/bullhead/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    device/lge/bullhead/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    device/lge/bullhead/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+    device/lge/bullhead/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     device/lge/bullhead/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     device/lge/bullhead/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
-    device/lge/bullhead/msm_irqbalance.conf:vendor/etc/msm_irqbalance.conf
+    device/lge/bullhead/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 # Power configuration file
 PRODUCT_COPY_FILES += \
@@ -170,6 +170,19 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service \
+    android.hardware.contexthub@1.0-service \
+    android.hardware.gnss@1.0-service \
+    android.hardware.drm@1.0-service \
+    android.hardware.light@2.0-service \
+    android.hardware.memtrack@1.0-service \
+    android.hardware.sensors@1.0-service \
+    android.hardware.keymaster@3.0-service \
+    android.hardware.keymaster@3.0-service.rc \
+    android.hardware.gatekeeper@1.0-service \
+    android.hardware.camera.provider@2.4-service \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-service \
     gralloc.msm8992 \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
@@ -240,16 +253,30 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    libgps.utils \
-    gps.msm8992
+	gps.msm8992 \
+	libgps.utils \
+	android.hardware.gnss@1.0-impl
 
 # NFC packages
 PRODUCT_PACKAGES += \
     libnfc-nci \
     NfcNci \
     Tag \
+    nfc_nci.msm8992 \
+    com.android.nfc_extras \
+    android.hardware.nfc@1.0 \
     android.hardware.nfc@1.0-impl \
-    nfc_nci.bullhead \
+    android.hardware.nfc@1.0-service
+
+# VR packages
+PRODUCT_PACKAGES += \
+    android.hardware.vr@1.0-service \
+    android.hardware.vr@1.0-impl \
+    android.hardware.vr@1.0 \
+    vr_hwc \
+    libdvr \
+    libpvr \
+    vr.bullhead
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -272,7 +299,16 @@ PRODUCT_PACKAGES += \
     wificond \
     wifilogd \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    netutils-wrapper-1.0 \
+    libwifikeystorehal \
+    android.hardware.wifi.offload@1.0:64 \
+    android.hardware.wifi.supplicant@1.0:64 \
+    android.hardware.wifi.supplicant@1.1:64 \
+    android.hardware.hostapd@1.0:64 \
+    android.hardware.wifi@1.0:64 \
+    android.hardware.wifi@1.1:64 \
+    android.hardware.wifi@1.2:64
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -295,9 +331,8 @@ NANOHUB_SENSORHAL_DIRECT_REPORT_ENABLED := true
 PRODUCT_PACKAGES += \
     sensors.bullhead \
     activity_recognition.bullhead \
-    context_hub.default \
     android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl \
+    android.hardware.contexthub@1.0-impl.nanohub
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES +=                         \
@@ -323,9 +358,6 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += \
     libvts_profiling \
     libvts_multidevice_proto
-# Test HAL for FMQ performance benchmark.
-PRODUCT_PACKAGES += \
-    android.hardware.tests.msgq@1.0-impl
 endif
 
 PRODUCT_PACKAGES += \
@@ -342,14 +374,6 @@ PRODUCT_PACKAGES += \
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/lge/bullhead/overlay
-
-# Allow tethering without provisioning app
-PRODUCT_PROPERTY_OVERRIDES += \
-    net.tethering.noprovisioning=true
-
-# Mobile Data provision prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.android.prov_mobiledata=false
 
 # Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -487,6 +511,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.data_no_toggle=1
 
+# Enable AAudio MMAP/NOIRQ data path.
+# 2 is AAUDIO_POLICY_AUTO so it will try MMAP then fallback to Legacy path.
+PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
+# Allow EXCLUSIVE then fall back to SHARED.
+PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_exclusive_policy=2
+
 # Adjust STK popup operation
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.process_sups_ind=1
@@ -498,10 +528,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.data_con_rprt=true
 
-# Set bluetooth soc to rome
-PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=rome
-
 # Set Bluetooth transport initialization timeout
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.enable_timeout_ms=12000
@@ -511,8 +537,17 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
-    libbt-vendor \
-    android.hardware.bluetooth@1.0-impl
+    android.hardware.bluetooth@1.0-service \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-impl:64 \
+    libbt-vendor
+
+# Bluetooth SoC
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.bluetooth.soc=rome
+# Property for loading BDA from bdaddress module in kernel
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bt.bdaddr_path=/persist/bdaddr.txt
 
 # limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -533,6 +568,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.camera.notify_nfc=1
 
+# Disable sdcardfs
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=0
 # Power HAL
 PRODUCT_PACKAGES += \
     power.bullhead \
@@ -545,7 +583,7 @@ PRODUCT_PACKAGES += \
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    android.hardware.gnss@1.0-impl:64
 
 #USB HAL
 PRODUCT_PACKAGES += \

@@ -249,6 +249,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
 
     switch(hint) {
         case POWER_HINT_VSYNC:
+        default:
         break;
         case POWER_HINT_INTERACTION:
         {

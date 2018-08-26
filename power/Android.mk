@@ -25,4 +25,6 @@ endif
 
 LOCAL_MODULE := power.bullhead
 LOCAL_MODULE_TAGS := optional
+LOCAL_CFLAGS += -Wno-error
+LOCAL_CFLAGS += -Wno-switch
 include $(BUILD_SHARED_LIBRARY)
